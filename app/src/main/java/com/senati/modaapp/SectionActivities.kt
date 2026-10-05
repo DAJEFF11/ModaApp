@@ -1,0 +1,18 @@
+package com.senati.modaapp
+
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.senati.modaapp.databinding.ActivitySimpleBinding
+
+abstract class SimpleSectionActivity(private val titleRes: Int) : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val b = ActivitySimpleBinding.inflate(layoutInflater); setContentView(b.root)
+        b.toolbar.setTitle(titleRes); b.toolbar.setNavigationOnClickListener { finish() }
+        b.tvMensaje.setText(R.string.seccion_pendiente)
+    }
+}
+class RopaActivity : SimpleSectionActivity(R.string.opcion_ropa)
+class PedidosActivity : SimpleSectionActivity(R.string.opcion_pedidos)
+class ClientesActivity : SimpleSectionActivity(R.string.opcion_clientes)
+class ReportesActivity : SimpleSectionActivity(R.string.opcion_reportes)

@@ -1,0 +1,8 @@
+<resources>
+    <style name="ModaButton" parent="Widget.Material3.Button">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textStyle">bold</item>
+        <item name="cornerRadius">28dp</item>
+        <item name="android:minHeight">48dp</item>
+    </style>
+</resources>
