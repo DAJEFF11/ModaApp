@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.senati.modaapp.databinding.ActivityLoginBinding
+import com.senati.modaapp.data.UsuarioDao
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
@@ -19,8 +20,9 @@ class LoginActivity : AppCompatActivity() {
             binding.tilUsuario.error = if (usuario.isBlank()) getString(R.string.error_usuario) else null
             binding.tilClave.error = if (clave.isBlank()) getString(R.string.error_clave) else null
             if (usuario.isBlank() || clave.isBlank()) return@setOnClickListener
-            if (usuario == "admin" && clave == "1234") {
-                startActivity(Intent(this, MenuActivity::class.java).putExtra("usuario", usuario))
+            val encontrado = UsuarioDao(this).validar(usuario, clave)
+            if (encontrado != null) {
+                startActivity(Intent(this, MenuActivity::class.java).putExtra("usuario", encontrado.usuario).putExtra("rol", encontrado.rol))
                 finish()
             } else Toast.makeText(this, R.string.credenciales_incorrectas, Toast.LENGTH_SHORT).show()
         }

@@ -31,4 +31,27 @@
     <string name="vestidos">Vestidos</string>
     <string name="casacas">Casacas</string>
     <string name="zapatillas">Zapatillas</string>
+    <string name="nueva_prenda">Nueva prenda</string>
+    <string name="agregar_prenda">Agregar prenda</string>
+    <string name="cambiar_foto">Cambiar foto</string>
+    <string name="elegir_foto">Elegir foto</string>
+    <string name="categoria">Categoría</string>
+    <string name="talla">Talla</string>
+    <string name="modelo">Modelo</string>
+    <string name="marca">Marca</string>
+    <string name="color">Color</string>
+    <string name="cantidad">Cantidad</string>
+    <string name="precio">Precio (S/)</string>
+    <string name="guardar">Guardar</string>
+    <string name="prenda_guardada">Prenda guardada</string>
+    <string name="error_modelo">Ingresa el modelo</string>
+    <string name="error_foto">Elige una foto</string>
+    <string name="error_precio">Ingresa un precio mayor que cero</string>
+    <string name="error_cantidad">Ingresa una cantidad válida</string>
+    <string name="stock_formato">Stock: %1$d</string>
+    <string name="detalle_ropa">Talla %1$s · %2$s</string>
+    <string name="moneda">S/ %1$.2f</string>
+    <string name="foto_prenda">Foto de la prenda</string>
+    <string name="sin_ropa">No hay prendas registradas</string>
+    <string-array name="tallas"><item>XS</item><item>S</item><item>M</item><item>L</item><item>XL</item></string-array>
 </resources>
