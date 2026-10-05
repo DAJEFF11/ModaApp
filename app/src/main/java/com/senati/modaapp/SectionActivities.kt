@@ -12,6 +12,3 @@ abstract class SimpleSectionActivity(private val titleRes: Int) : AppCompatActiv
         b.tvMensaje.setText(R.string.seccion_pendiente)
     }
 }
-class PedidosActivity : SimpleSectionActivity(R.string.opcion_pedidos)
-class ClientesActivity : SimpleSectionActivity(R.string.opcion_clientes)
-class ReportesActivity : SimpleSectionActivity(R.string.opcion_reportes)

@@ -14,6 +14,8 @@
         <activity android:name=".CarritoActivity" android:exported="false" />
         <activity android:name=".RopaFormActivity" android:exported="false" />
         <activity android:name=".PedidoActivity" android:exported="false" />
+        <activity android:name=".PedidoConfirmadoActivity" android:exported="false" />
+        <activity android:name=".DetallePedidoActivity" android:exported="false" />
         <activity android:name=".CatalogoActivity" android:exported="false" />
         <activity android:name=".ReportesActivity" android:exported="false" />
         <activity android:name=".ClientesActivity" android:exported="false" />

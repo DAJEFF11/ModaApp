@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.senati.modaapp.databinding.ActivityMenuBinding
+import com.senati.modaapp.data.SessionManager
 
 class MenuActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMenuBinding
@@ -17,6 +18,7 @@ class MenuActivity : AppCompatActivity() {
         binding.cardClientes.setOnClickListener { abrir(ClientesActivity::class.java) }
         binding.cardReportes.setOnClickListener { abrir(ReportesActivity::class.java) }
         binding.btnSalir.setOnClickListener {
+            SessionManager(this).cerrar()
             startActivity(Intent(this, LoginActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK))
             finish()
         }

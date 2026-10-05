@@ -86,4 +86,24 @@
     <string name="resumen_pedido">%1$d prendas</string>
     <string name="pedido_registrado">Pedido #%1$d registrado</string>
     <string name="cancelar">Cancelar</string>
+    <string name="enviar_mi_whatsapp">Enviar a mi WhatsApp</string>
+    <string name="avisar_tienda">Avisar a la tienda</string>
+    <string name="whatsapp_no_instalado">WhatsApp no está instalado</string>
+    <string name="pendientes">Pendientes</string>
+    <string name="atendidos">Atendidos</string>
+    <string name="pedido_fila">#%1$d · %2$s</string>
+    <string name="pedido_detalle">%1$s · %2$d prendas · S/ %3$.2f</string>
+    <string name="sin_pedidos">No hay pedidos en este estado</string>
+    <string name="marcar_atendido">Marcar como atendido</string>
+    <string name="llamar_cliente">Llamar al cliente</string>
+    <string name="confirmar_atender">¿Marcar este pedido como atendido y descontar el stock?</string>
+    <string name="pedido_atendido">Pedido marcado como atendido</string>
+    <string name="detalle_pedido_titulo">Detalle del pedido</string>
+    <string name="cliente_fila">%1$s</string>
+    <string name="cliente_detalle">%1$s · %2$d pedidos</string>
+    <string name="buscar_cliente">Buscar por nombre o teléfono</string>
+    <string name="vendido_mes">Vendido en el mes (atendidos)</string>
+    <string name="stock_prenda">Stock por prenda</string>
+    <string name="numero_pedidos">%1$d</string>
+    <string name="stock_linea">%1$s  ·  %2$d</string>
 </resources>
