@@ -9,6 +9,10 @@ class RopaDao(context: Context) {
     private val helper = DBHelper(context)
     fun categorias(): List<Categoria> = helper.readableDatabase.rawQuery("SELECT id,nombre FROM categoria ORDER BY id", null).use { c -> buildList { while (c.moveToNext()) add(Categoria(c.getLong(0), c.getString(1))) } }
     fun insertar(ropa: Ropa): Long = helper.writableDatabase.insertOrThrow("ropa", null, values(ropa))
+    fun actualizar(ropa:Ropa):Int=helper.writableDatabase.update("ropa",values(ropa),"id=?",arrayOf(ropa.id.toString()))
+    fun eliminar(id:Long):Int=helper.writableDatabase.delete("ropa","id=?",arrayOf(id.toString()))
+    fun obtener(id:Long):Ropa?=consultar("SELECT r.id,r.modelo,r.id_categoria,c.nombre,r.talla,r.marca,r.color,r.precio,r.cantidad,r.foto FROM ropa r JOIN categoria c ON c.id=r.id_categoria WHERE r.id=?",arrayOf(id.toString())).firstOrNull()
+    fun listar(filtro:String):List<Ropa>{val q="%$filtro%";return consultar("SELECT r.id,r.modelo,r.id_categoria,c.nombre,r.talla,r.marca,r.color,r.precio,r.cantidad,r.foto FROM ropa r JOIN categoria c ON c.id=r.id_categoria WHERE r.modelo LIKE ? OR r.marca LIKE ? OR r.color LIKE ? ORDER BY r.id DESC",arrayOf(q,q,q))}
     fun listarDisponibles(idCategoria: Long? = null): List<Ropa> {
         val where = if (idCategoria == null) "r.cantidad > 0" else "r.cantidad > 0 AND r.id_categoria=?"
         val args = idCategoria?.let { arrayOf(it.toString()) }
