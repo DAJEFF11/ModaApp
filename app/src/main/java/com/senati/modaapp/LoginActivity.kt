@@ -8,13 +8,13 @@ import com.senati.modaapp.databinding.ActivityLoginBinding
 import com.senati.modaapp.data.UsuarioDao
 import com.senati.modaapp.data.SessionManager
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : ModaActivity() {
     private lateinit var binding: ActivityLoginBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        SessionManager(this).usuario()?.let { startActivity(Intent(this,MenuActivity::class.java).putExtra("usuario",it));finish();return }
+        SessionManager(this).usuario()?.let { startActivity(Intent(this,MenuActivity::class.java).putExtra("usuario",it).putExtra("rol",SessionManager(this).rol()));finish();return }
         binding.etUsuario.setText("admin")
         binding.btnIngresar.setOnClickListener {
             val usuario = binding.etUsuario.text?.toString()?.trim().orEmpty()

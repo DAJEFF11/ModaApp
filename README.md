@@ -33,4 +33,6 @@ La rama `Sprint-4` contiene la entrega final y conserva todo lo realizado en los
 .\gradlew.bat assembleDebug testDebugUnitTest
 ```
 
-El APK final firmado se encuentra en `releases/ModaApp-v1.0.apk`.
+El APK final firmado se encuentra en `releases/ModaApp-v1.1.apk`.
+
+La matriz de comprobación de las 13 historias está en `docs/VALIDACION_FUNCIONAL.md`.

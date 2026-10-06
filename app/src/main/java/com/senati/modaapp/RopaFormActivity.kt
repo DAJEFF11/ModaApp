@@ -16,7 +16,7 @@ import android.database.sqlite.SQLiteConstraintException
 import android.view.View
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
-class RopaFormActivity:AppCompatActivity(){
+class RopaFormActivity:ModaActivity(){
     private lateinit var b:ActivityRopaFormBinding;private lateinit var dao:RopaDao;private var foto="";private lateinit var categorias:List<Categoria>;private var id=0L
     private val picker=registerForActivityResult(ActivityResultContracts.PickVisualMedia()){it?.let(::copiarFoto)}
     override fun onCreate(s:Bundle?){super.onCreate(s);b=ActivityRopaFormBinding.inflate(layoutInflater);setContentView(b.root);dao=RopaDao(this);categorias=dao.categorias();b.toolbar.setNavigationOnClickListener{finish()};b.spCategoria.adapter=ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item,categorias);b.spTalla.adapter=ArrayAdapter.createFromResource(this,R.array.tallas,android.R.layout.simple_spinner_dropdown_item);id=intent.getLongExtra("id",0);if(id>0)cargar();b.btnFoto.setOnClickListener{picker.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))};b.btnGuardar.setOnClickListener{guardar()};b.btnEliminar.setOnClickListener{MaterialAlertDialogBuilder(this).setMessage(R.string.confirmar_eliminar).setNegativeButton(R.string.cancelar,null).setPositiveButton(R.string.eliminar){_,_->eliminar()}.show()}}

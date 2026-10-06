@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.senati.modaapp.databinding.ActivitySimpleBinding
 
-abstract class SimpleSectionActivity(private val titleRes: Int) : AppCompatActivity() {
+abstract class SimpleSectionActivity(private val titleRes: Int) : ModaActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val b = ActivitySimpleBinding.inflate(layoutInflater); setContentView(b.root)

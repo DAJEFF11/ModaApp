@@ -11,7 +11,9 @@
     <string name="error_clave">Ingresa tu contraseña</string>
     <string name="credenciales_incorrectas">Credenciales incorrectas</string>
     <string name="hola_usuario">Hola, %1$s</string>
-    <string name="pedidos_pendientes">4 pedidos pendientes</string>
+    <string name="pedidos_pendientes">Pedidos pendientes</string>
+    <string name="pedidos_pendientes_count">%1$d pedidos pendientes</string>
+    <string name="rol_usuario">Rol: %1$s</string>
     <string name="opcion_ropa">Ropa</string>
     <string name="opcion_pedidos">Pedidos</string>
     <string name="opcion_clientes">Clientes</string>
@@ -106,4 +108,9 @@
     <string name="stock_prenda">Stock por prenda</string>
     <string name="numero_pedidos">%1$d</string>
     <string name="stock_linea">%1$s  ·  %2$d</string>
+    <string name="total">Total</string>
+    <string name="resumen_cliente">%1$s\n%2$s · S/ %3$.2f</string>
+    <string name="detalle_prenda_pedido">%1$d unidad(es) · Talla %2$s · %3$s</string>
+    <string name="reporte_atendidos">Atendidos\n%1$d</string>
+    <string name="reporte_pendientes">Pendientes\n%1$d</string>
 </resources>

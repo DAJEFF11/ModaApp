@@ -13,11 +13,18 @@ import android.text.InputType
 import android.widget.Toast
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.senati.modaapp.data.model.Carrito
+import com.google.android.material.badge.BadgeDrawable
+import com.google.android.material.badge.BadgeUtils
 
-class CatalogoActivity : AppCompatActivity() {
+class CatalogoActivity : ModaActivity() {
+    private lateinit var binding: ActivityCatalogoBinding
+    private lateinit var cartBadge: BadgeDrawable
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val b = ActivityCatalogoBinding.inflate(layoutInflater); setContentView(b.root)
+        val b = ActivityCatalogoBinding.inflate(layoutInflater)
+        binding = b
+        setContentView(b.root)
         b.toolbar.setNavigationOnClickListener { finish() }
         b.toolbar.setOnMenuItemClickListener {
             if (it.itemId == R.id.action_cart) { startActivity(Intent(this, CarritoActivity::class.java)); true } else false
@@ -26,5 +33,15 @@ class CatalogoActivity : AppCompatActivity() {
         fun cargar(id:Long?){adapter.submitList(dao.listarDisponibles(id));b.tvVacio.visibility=if(adapter.itemCount==0)android.view.View.VISIBLE else android.view.View.GONE}
         val todas=Chip(this).apply{text=getString(R.string.todas);isCheckable=true;isChecked=true;id=android.view.View.generateViewId()};b.chips.addView(todas)
         todas.setOnClickListener{cargar(null)};dao.categorias().forEach{cat->val chip=Chip(this).apply{text=cat.nombre;isCheckable=true;id=android.view.View.generateViewId()};chip.setOnClickListener{cargar(cat.id)};b.chips.addView(chip)};cargar(null)
+        cartBadge = BadgeDrawable.create(this)
+        BadgeUtils.attachBadgeDrawable(cartBadge, b.toolbar, R.id.action_cart)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (::cartBadge.isInitialized) {
+            cartBadge.number = Carrito.items.sumOf { it.cantidad }
+            cartBadge.isVisible = cartBadge.number > 0
+        }
     }
 }
